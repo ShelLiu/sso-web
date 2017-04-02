@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- 核心样式文件 -->
+  <link rel="stylesheet" href="css/theme_cdp/index.css">
+  <!-- 自定义样式文件 -->
+  <style>
+    * {
+      font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    }
+    html {
+      height: 100%;
+      overflow: hidden;
+      width: 100%
+    }
+    body {
+      background: url(assets/sso-login-footer.png) no-repeat center top 70%,url(assets/sso-login-bg.png) no-repeat;
+      background-size: auto, cover;
+      height: 100%;
+      margin: 0;
+      width: 100%
+    }
+  </style>
+</head>
+<body>
+<div id="app"></div>
+<script src="js/vue2.2.6.js"></script>
+<script src="js/element.min.js"></script>
+
+<!-- 模板 -->
+<template id="sso">
+  <div id="sso-app" style="margin-top: 140px;">
+    <el-card class="sso-login-box" :body-style="{padding: '48px 0'}" style="margin: 0 auto;text-align: center;width: 500px;">
+      <div>
+        <span style="color: #c5172c;font-size: 22px;font-weight: lighter;">重&nbsp;置&nbsp;密&nbsp;码</span>
+      </div>
+      <div style="margin-top: 17px;">
+        <img src="./assets/icon_04.png">
+      </div>
+      <div style="margin-top: 15px;">
+        <span style="font-size: 18px;">操作成功</span>
+      </div>
+      <div style="margin-top: 10px;">
+        <span style="color: #999999;font-size: 16px;">新密码将发送至：pdc_sso_team@cdpgroupltd.com</span>
+      </div>
+      <div style="margin-top: 30px;">
+        <el-button type="info" size="large" plain="true" style="border-radius: 0;min-width: 190px;">返回登录</el-button>
+      </div>
+    </el-card>
+  </div>
+</template>
+
+<script>
+  Vue.component('App', {
+    template: '#sso',
+
+    data () {
+      return {
+
+      }
+    },
+
+    methods: {
+
+    }
+  });
+</script>
+<!-- /模板 -->
+
+<script>
+  var vueApp = new Vue({
+    el: '#app',
+
+    render: function(h) {
+      return h('App');
+    }
+  });
+</script>
+</body>
+</html>
