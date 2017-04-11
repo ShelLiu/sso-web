@@ -31,20 +31,17 @@
 <!-- 模板 -->
 <template id="sso">
   <div id="sso-app" style="margin-top: 140px;">
-    <el-card class="sso-login-box" :body-style="{padding: '48px 0'}" style="margin: 0 auto;text-align: center;width: 500px;">
+    <el-card class="sso-login-box" :body-style="{padding: '75px 0 90px 0'}" style="margin: 0 auto;text-align: center;width: 620px;">
       <div>
         <span style="color: #c5172c;font-size: 22px;font-weight: lighter;">重&nbsp;置&nbsp;密&nbsp;码</span>
       </div>
-      <div style="margin-top: 17px;">
-        <img src="./assets/icon_03.png">
-      </div>
-      <div style="margin-top: 15px;">
-        <span style="font-size: 16px;">此操作将重置您的密码，新密码将发送至：13800013800</span>
+      <div style="margin-top: 40px;">
+        <span style="font-size: 16px;">此操作将重置您的密码，新密码将发送至：13800138000</span>
       </div>
       <div style="margin-top: 10px;">
         <span style="color: #999999;font-size: 16px;">确认执行此操作？</span>
       </div>
-      <div style="margin-top: 30px;">
+      <div style="margin-top: 90px;">
         <el-button type="primary" size="large" style="border-radius: 0;min-width: 190px;" @click="startHacking" v-loading.fullscreen.lock="loading" element-loading-text="玩命处理中">确认重置</el-button>
       </div>
     </el-card>

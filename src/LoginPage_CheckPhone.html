@@ -21,6 +21,19 @@
       margin: 0;
       width: 100%
     }
+    .el-input__inner {
+      background: none;
+      border-radius: 0;
+      height: 46px;
+      padding: 3px 15px;
+    }
+    .el-input-group__append {
+      border-radius: 0;
+    }
+    #sso-login-box {
+      margin: 0 auto;
+      width: 600px;
+    }
   </style>
 </head>
 <body>
@@ -31,18 +44,15 @@
 <!-- 模板 -->
 <template id="sso">
   <div id="sso-app" style="margin-top: 140px;">
-    <el-card class="sso-login-box" :body-style="{padding: '75px 0 90px 0'}" style="margin: 0 auto;text-align: center;width: 620px;">
+    <el-card id="sso-login-box" :body-style="{padding: '100px 115px'}">
       <div>
-        <span style="color: #c5172c;font-size: 22px;font-weight: lighter;">重&nbsp;置&nbsp;密&nbsp;码</span>
+        <el-input type="tel" placeholder="手机号码" v-model="input$tel" :disabled="true"/>
       </div>
-      <div style="margin-top: 40px;">
-        <span style="font-size: 15px;">此操作将重置您的密码，新密码将发送至：pdc_sso_team@cdpgroupltd.com</span>
+      <div style="margin-top: 17px;">
+        <el-input type="text" placeholder="验证码" v-model="input$code"><el-button slot="append" style="width: 128px;" @click="sendCode">发送</el-button></el-input>
       </div>
-      <div style="margin-top: 10px;">
-        <span style="color: #999999;font-size: 15px;">确认执行此操作？</span>
-      </div>
-      <div style="margin-top: 90px;">
-        <el-button type="primary" size="large" style="border-radius: 0;min-width: 190px;" @click="startHacking" v-loading.fullscreen.lock="loading" element-loading-text="玩命处理中">确认重置</el-button>
+      <div style="margin-top: 47px;">
+        <el-button type="primary" size="large" style="width: 100%;border-radius: 0;" @click.native="startHacking">提 交</el-button>
       </div>
     </el-card>
   </div>
@@ -54,13 +64,22 @@
 
     data () {
       return {
-        loading: false
+        input$tel: '13800138000',
+        input$code: ''
       }
     },
 
     methods: {
       startHacking () {
-        this.loading = true;
+        this.$message.error({
+          message: '登录失败: 验证码错误'
+        })
+      },
+
+      sendCode () {
+        this.$message.success({
+          message: '验证码已发至您的手机，请注意查收！'
+        });
       }
     }
   });
