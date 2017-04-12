@@ -43,7 +43,7 @@
   <div id="sso-app" style="margin-top: 140px;">
     <el-card id="sso-login-box" :body-style="{padding: '135px 115px 147px 115px'}">
       <div>
-        <el-input type="text" placeholder="MFA验证码" v-model="input$1" id="sso-app-input_1"/>
+        <el-input type="text" placeholder="MFA验证码" v-model="input$1"/>
       </div>
       <div style="margin-top: 35px;">
         <el-button type="primary" size="large" style="width: 100%;border-radius: 0;" @click.native="startHacking">提 交</el-button>
@@ -58,8 +58,7 @@
 
     data () {
       return {
-        input$1: '',
-        input$2: ''
+        input$1: ''
       }
     },
 
