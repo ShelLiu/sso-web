@@ -11,15 +11,16 @@
     }
     html {
       height: 100%;
-      overflow: hidden;
-      width: 100%
+      width: 100%;
     }
     body {
-      background: url(assets/sso-login-footer.png) no-repeat center top 70%,url(assets/sso-login-bg.png) no-repeat;
-      background-size: auto, cover;
-      height: 100%;
+      background: url(assets/sso-login-bg.png) no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
       margin: 0;
-      width: 100%
+      min-height: 100%;
+      width: 100%;
+      overflow-y: auto;
     }
     .el-input__inner {
       background: none;
@@ -43,7 +44,7 @@
 
 <!-- 模板 -->
 <template id="sso">
-  <div id="sso-app" style="margin-top: 140px;">
+  <div id="sso-app" style="padding-top: 140px;">
     <el-card class="sso-login-box" :body-style="{padding: '46px 105px'}" style="margin: 0 auto;width: 600px;">
       <div style="text-align: center;">
         <span style="color: #c5172c;font-size: 22px;font-weight: lighter;">重&nbsp;置&nbsp;密&nbsp;码</span>
@@ -58,7 +59,14 @@
               <el-input type="text" placeholder="验证码" v-model="input$code"><el-button slot="append" style="width: 128px;" @click="sendCode">发送</el-button></el-input>
             </div>
             <div style="margin-top: 48px;">
-              <el-button type="primary" size="large" style="width: 100%;border-radius: 0;" @click.native="startHacking">下一步</el-button>
+              <el-row :gutter="30">
+                <el-col :span="12">
+                  <el-button size="large" style="width: 100%;border-radius: 0;color: #fff;background-color: #ccc;border-color: #ccc;" @click.native="startHacking">取 消</el-button>
+                </el-col>
+                <el-col :span="12">
+                  <el-button type="primary" size="large" style="width: 100%;border-radius: 0;" @click.native="startHacking">下一步</el-button>
+                </el-col>
+              </el-row>
             </div>
           </el-tab-pane>
 
@@ -67,12 +75,23 @@
               <el-input type="mail" placeholder="邮箱" v-model="input$mail"/>
             </div>
             <div style="margin-top: 112px;">
-              <el-button type="primary" size="large" style="width: 100%;border-radius: 0;" @click.native="sendMail">下一步</el-button>
+              <el-row :gutter="30">
+                <el-col :span="12">
+                  <el-button size="large" style="width: 100%;border-radius: 0;color: #fff;background-color: #ccc;border-color: #ccc;" @click.native="startHacking">取 消</el-button>
+                </el-col>
+                <el-col :span="12">
+                  <el-button type="primary" size="large" style="width: 100%;border-radius: 0;" @click.native="startHacking">下一步</el-button>
+                </el-col>
+              </el-row>
             </div>
           </el-tab-pane>
         </el-tabs>
       </div>
     </el-card>
+    <footer style="padding-top: 30px;text-align: center;font-size: 14px;">
+      <p style="color: #d80031"><span>成就企业</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>造福员工</span></p>
+      <p style="color: #a0a0a0">COPYRIGHT&nbsp;&copy;&nbsp;2016-2018 CDP GROUP LTD</p>
+    </footer>
   </div>
 </template>
 
