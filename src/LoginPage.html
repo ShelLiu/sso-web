@@ -28,8 +28,17 @@
       height: 46px;
       padding: 3px 15px;
     }
+    #sso-app .el-input__inner::-webkit-input-placeholder {
+      color: #999;
+    }
+    #sso-app .el-input__inner:-ms-input-placeholder {
+      color: #999;
+    }
+    #sso-app .el-input__inner::placeholder {
+      color: #999;
+    }
     #sso-app-input_1 {
-      border: 1px #ccc solid;
+      border: 1px #cccccc solid;
       box-sizing: border-box;
       background: url(assets/icon_01.png) no-repeat left 13px center;
       padding-left: 53px;
@@ -40,7 +49,7 @@
     }
     #sso-app-input_2 {
       background: url(assets/icon_02.png) no-repeat left 13px center;
-      border: 1px #ccc solid;
+      border: 1px #cccccc solid;
       box-sizing: border-box;
       padding-left: 53px;
     }
@@ -85,7 +94,7 @@
         </el-row>
       </div>
       <div style="margin-top: 24px;">
-        <el-button type="primary" size="large" style="width: 100%;border-radius: 0;" @click.native="startHacking">登 录</el-button>
+        <el-button type="primary" size="large" style="width: 100%;border-radius: 0;height: 46px;" @click.native="startHacking">登 录</el-button>
       </div>
     </el-card>
     <footer style="padding-top: 30px;text-align: center;font-size: 14px;">
