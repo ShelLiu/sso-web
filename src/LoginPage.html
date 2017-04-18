@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <!-- 核心样式文件 -->
   <link rel="stylesheet" href="css/theme_cdp/index.css">
+  <link rel="stylesheet" href="css/theme_cdp/input.css">
   <!-- 自定义样式文件 -->
   <style>
     * {
@@ -28,6 +29,9 @@
       height: 46px;
       padding: 3px 15px;
     }
+    .el-input-group__append {
+      border-radius: 0;
+    }
     #sso-app .el-input__inner::-webkit-input-placeholder {
       color: #999;
     }
@@ -38,7 +42,7 @@
       color: #999;
     }
     #sso-app-input_1 {
-      border: 1px #cccccc solid;
+      border: 1px #999999 solid;
       box-sizing: border-box;
       background: url(assets/icon_01.png) no-repeat left 13px center;
       padding-left: 53px;
@@ -49,7 +53,7 @@
     }
     #sso-app-input_2 {
       background: url(assets/icon_02.png) no-repeat left 13px center;
-      border: 1px #cccccc solid;
+      border: 1px #999999 solid;
       box-sizing: border-box;
       padding-left: 53px;
     }
@@ -81,6 +85,13 @@
       <div style="margin-top: 17px;">
         <el-input type="password" placeholder="密码" v-model="input$2" id="sso-app-input_2"/>
       </div>
+      <div style="margin-top: 17px;">
+        <el-input type="text" placeholder="验证码" v-model="input$3">
+          <el-button slot="append" @click="setCode">
+            <img src="" width="100" height="40" alt="验证图片……">
+          </el-button>
+        </el-input>
+      </div>
       <div>
         <el-row>
           <el-col :span="12">
@@ -111,11 +122,18 @@
     data () {
       return {
         input$1: '',
-        input$2: ''
+        input$2: '',
+        input$3: ''
       }
     },
 
     methods: {
+      setCode () {
+        this.$message.success({
+          message: '已更换验证码！'
+        });
+      },
+
       startHacking () {
         this.$message.error({
           message: '登录失败: 密码错误'

@@ -29,6 +29,15 @@
       height: 46px;
       padding: 3px 20px;
     }
+    #sso-app .el-input__inner::-webkit-input-placeholder {
+      color: #999;
+    }
+    #sso-app .el-input__inner:-ms-input-placeholder {
+      color: #999;
+    }
+    #sso-app .el-input__inner::placeholder {
+      color: #999;
+    }
     .el-input-group__append {
       border-radius: 0;
     }
@@ -57,7 +66,9 @@
               <el-input type="tel" placeholder="手机号码" v-model="input$tel"/>
             </div>
             <div style="margin-top: 18px;">
-              <el-input type="text" placeholder="验证码" v-model="input$code"><el-button slot="append" style="width: 128px;" @click="sendCode">发送</el-button></el-input>
+              <el-input type="text" placeholder="验证码" v-model="input$code">
+                <el-button slot="append" style="width: 128px;" @click="sendCode">发送</el-button>
+              </el-input>
             </div>
             <div style="margin-top: 48px;">
               <el-row :gutter="30">
@@ -75,7 +86,14 @@
             <div style="margin-top: 5px;">
               <el-input type="mail" placeholder="邮箱" v-model="input$mail"/>
             </div>
-            <div style="margin-top: 112px;">
+            <div style="margin-top: 18px;">
+              <el-input type="text" placeholder="验证码" v-model="input$code2">
+                <el-button slot="append" @click="setCode">
+                  <img src="" width="96" height="40" alt="验证图片……">
+                </el-button>
+              </el-input>
+            </div>
+            <div style="margin-top: 48px;">
               <el-row :gutter="30">
                 <el-col :span="12">
                   <el-button size="large" style="width: 100%;border-radius: 0;color: #fff;background-color: #ccc;border-color: #ccc;" @click.native="startHacking">取 消</el-button>
@@ -104,7 +122,8 @@
       return {
         input$tel: '',
         input$code: '',
-        input$mail: ''
+        input$mail: '',
+        input$code2: ''
       }
     },
 
@@ -118,6 +137,12 @@
       sendCode () {
         this.$message.success({
           message: '验证码已发至您的手机，请注意查收！'
+        });
+      },
+
+      setCode () {
+        this.$message.success({
+          message: '已更换验证码！'
         });
       },
 
