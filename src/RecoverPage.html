@@ -38,9 +38,6 @@
     #sso-app .el-input__inner::placeholder {
       color: #999;
     }
-    .el-input-group__append {
-      border-radius: 0;
-    }
     .el-tabs__item {
       min-width: 195px;
       text-align: center;
@@ -66,9 +63,14 @@
               <el-input type="tel" placeholder="手机号码" v-model="input$tel"/>
             </div>
             <div style="margin-top: 18px;">
-              <el-input type="text" placeholder="验证码" v-model="input$code">
-                <el-button slot="append" style="width: 128px;" @click="sendCode">发送</el-button>
-              </el-input>
+              <el-row>
+                <el-col :span="16">
+                  <el-input type="text" placeholder="验证码" v-model="input$code"/>
+                </el-col>
+                <el-col :span="8">
+                  <el-button style="height: 46px;width: 100%;border-radius: 0;border-color: #999;color: #999;border-left: none;" @click="sendCode">发送</el-button>
+                </el-col>
+              </el-row>
             </div>
             <div style="margin-top: 48px;">
               <el-row :gutter="30">
@@ -87,11 +89,16 @@
               <el-input type="mail" placeholder="邮箱" v-model="input$mail"/>
             </div>
             <div style="margin-top: 18px;">
-              <el-input type="text" placeholder="验证码" v-model="input$code2">
-                <el-button slot="append" @click="setCode">
-                  <img src="" width="96" height="40" alt="验证图片……">
-                </el-button>
-              </el-input>
+              <el-row>
+                <el-col :span="16">
+                  <el-input type="text" placeholder="验证码" v-model="input$code2"/>
+                </el-col>
+                <el-col :span="8">
+                  <el-button style="height: 46px;width: 100%;border-radius: 0;border-color: #999;color: #999;border-left: none;" @click="setCode">
+                    <img src="" width="96" height="100%" alt="验证图片……">
+                  </el-button>
+                </el-col>
+              </el-row>
             </div>
             <div style="margin-top: 48px;">
               <el-row :gutter="30">
